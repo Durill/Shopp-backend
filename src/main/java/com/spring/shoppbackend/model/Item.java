@@ -1,7 +1,6 @@
 package com.spring.shoppbackend.model;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
