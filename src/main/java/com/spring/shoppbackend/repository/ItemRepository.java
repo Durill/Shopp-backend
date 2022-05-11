@@ -14,4 +14,8 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     @Query(value = "select * from items order by item_added_date desc limit ?;",
             nativeQuery = true)
     public List<Item> getNewestItems(Integer numberOfItems);
+
+    @Query(value = "select * from items order by quantity desc limit ?;",
+            nativeQuery = true)
+    public List<Item> getBestsellers(Integer numberOfItems);
 }

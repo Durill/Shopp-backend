@@ -28,4 +28,9 @@ public class ItemController {
     public List<Item> getNewestItems(Integer numberOfItems) {
         return itemRepository.getNewestItems(3);
     }
+
+    @GetMapping("/bestsellers")
+    public List<Item> getBestsellers(Integer numberOfItems) {
+        return itemRepository.getBestsellers(3);
+    }
 }
