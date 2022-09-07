@@ -3,13 +3,10 @@ package com.spring.shoppbackend.controller;
 import com.spring.shoppbackend.model.Item;
 import com.spring.shoppbackend.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
@@ -20,7 +17,7 @@ public class ItemController {
     ItemRepository itemRepository;
 
     @GetMapping("/allItems")
-    public List<Item> getAllItems(){
+    public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
 
@@ -32,5 +29,10 @@ public class ItemController {
     @GetMapping("/bestsellers")
     public List<Item> getBestsellers(Integer numberOfItems) {
         return itemRepository.getBestsellers(3);
+    }
+
+    @GetMapping("/products")
+    public Optional<Item> getDetailedProductInformation(String id){
+        return itemRepository.findById(Long.parseLong(id));
     }
 }

@@ -9,29 +9,36 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
+    private Long id;
     @Column(name = "item_name")
     private String itemName;
+
     @Column(name = "description")
     private String description;
     @Column(name = "price")
     private double price;
+
     @Column(name = "quantity")
     private int quantity;
-    @Column(name = "item_added_date")
-    private Date itemAddedDate;
 
-    public Item(){
+    @Column(name = "product_date_of_adding")
+    private Date productDateOfAdding;
+
+    public Item() {
 
     }
 
-    public Item(String itemName, String description, double price, int quantity, Date itemAddedDate){
+    public Item(String itemName, double price) {
         this.itemName = itemName;
-        this.description = description;
         this.price = price;
-        this.quantity = quantity;
-        this.itemAddedDate = itemAddedDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getItemName() {
@@ -66,19 +73,11 @@ public class Item {
         this.quantity = quantity;
     }
 
-    public int getId() {
-        return id;
+    public Date getProductDateOfAdding() {
+        return productDateOfAdding;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Date getItemAddedDate() {
-        return itemAddedDate;
-    }
-
-    public void setItemAddedDate(Date itemAddedDate) {
-        this.itemAddedDate = itemAddedDate;
+    public void setProductDateOfAdding(Date productDateOfAdding) {
+        this.productDateOfAdding = productDateOfAdding;
     }
 }
