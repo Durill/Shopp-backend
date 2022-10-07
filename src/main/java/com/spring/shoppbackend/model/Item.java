@@ -24,6 +24,9 @@ public class Item {
     @Column(name = "product_date_of_adding")
     private Date productDateOfAdding;
 
+    @Column(name = "product_type")
+    private String productType;
+
     public Item() {
 
     }
@@ -79,5 +82,13 @@ public class Item {
 
     public void setProductDateOfAdding(Date productDateOfAdding) {
         this.productDateOfAdding = productDateOfAdding;
+    }
+
+    public String getProductType() {
+        return productType;
+    }
+
+    public void setProductType(String productType) {
+        this.productType = productType;
     }
 }
